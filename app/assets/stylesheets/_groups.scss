@@ -1,30 +1,35 @@
-.side-content {
+.side-bar {
   width: 300px;
   color: white;
   float: left;
   height: 100vh;
-  &__header{
+  .header{
     padding:  0 20px;
     height: 100px;
     background-color: $color-darkgray;
     justify-content: space-between;
-    &--name{
+    &__name{
       color: $off-white;
       font-size: 16px;
-      font-weight: bold;
+      font-weight: bold;  
       line-height: 100px;
       letter-spacing: 2px;
       float: left;
     }
-    &--icon{
+    &__lists{
       color: white;
-      font-size: 16px;
+      // font-size: 16px;
       line-height: 100px;
       float: right; 
-      justify-content: space-between;
+      // justify-content: space-between;
+      li{
+        float:right;
+        font-size: 20px;
+        justify-content: space-between;
+      }
     }
   }
-  &__groups{
+  .groups{
     height: calc(100vh - 100px);
     background-color: #2f3e51;
     padding: 20px 20px 0;
