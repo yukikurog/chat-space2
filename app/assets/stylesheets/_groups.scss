@@ -115,50 +115,39 @@
       }
     }
   }
-  .main-content__form {
-    padding: 20px 40px;
-    height: 50px;
-    background-color: #ddd;
+  .form {
     position: fixed;
     bottom: 0;
     right: 0;
-    left: 300px; 
-    .input-box {
-      position: relative;
-      height: 50px; 
-      width: 100%;
-      &--text{
-        height: 50px;
-        width: calc(100% - 200px);
-        padding: 0 40px 0 10px;
-        background-color: white;
-        border-style: none;
-        position: absolute;
-        line-height: 50px;
-        color: #434a54;
-        opacity: 0.5;
-        }
-      &--image {
-        font-size: 1.3rem;
-        position: absolute;
-        top: 2.5px;
-        right: 10px;
-        cursor: pointer; 
-        
+    height: 90px;
+    width: calc(100vw - 300px);
+    background-color: #DCDCDC;
+    input {
+    &__message {
+      position: absolute;
+      background-color: $white;
+      height: 50px;
+// @@ -92,7 +92,7 @@
+      right: 155px;
+      padding-right: 10px;
+    }
+    .chat__form__btn {
+    &__btn {
+      position: absolute;
+      background-color: $light-blue;
+      height: 50px;
+// @@ -106,10 +106,8 @@
+      cursor: pointer;
+      line-height: 50px;
+      text-align: center;
+      span {
+        color: $white;
+        font-size: 16px;
       }
-      &--submit {
-        height: 50px;
-        padding: 0 30px;
-        margin-left: 15px;
-        background-color: #38aef0;
-        color: white;
-        cursor: pointer;
-        position: absolute;
-        top: 0;
-        right: 0;
-        text-align: center;
-        line-height: 50px;
-      }
+      color: $white;
+      font-size: 16px;
+    }
+    }
     }
   }
 }
