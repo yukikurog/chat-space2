@@ -115,39 +115,70 @@
       }
     }
   }
-  .form {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    height: 90px;
-    width: calc(100vw - 300px);
-    background-color: #DCDCDC;
-    input {
-    &__message {
-      position: absolute;
-      background-color: $white;
-      height: 50px;
-// @@ -92,7 +92,7 @@
-      right: 155px;
-      padding-right: 10px;
-    }
-    .chat__form__btn {
-    &__btn {
-      position: absolute;
-      background-color: $light-blue;
-      height: 50px;
-// @@ -106,10 +106,8 @@
-      cursor: pointer;
-      line-height: 50px;
-      text-align: center;
-      span {
-        color: $white;
-        font-size: 16px;
-      }
-      color: $white;
-      font-size: 16px;
-    }
-    }
-    }
-  }
+//   .mein-content__form {
+//     position: fixed;
+//     bottom: 0;
+//     right: 0;
+//     height: 900px;
+//     width: calc(100vw - 300px);
+//     background-color: #DCDCDC;
+
+
+//     .input-box {
+//       position: absolute;
+//       background-color: $white;
+//       height: 50px;
+// // @@ -92,7 +92,7 @@
+//       right: 155px;
+//       padding-right: 10px;
+//       font-size: 40px;
+//       .form-message {
+//       position: absolute;
+//       background-color: $light-blue;
+//       height: 50px;
+// // @@ -106,10 +106,8 @@
+//       cursor: pointer;
+//       line-height: 50px;
+//       text-align: center;
+
+
+// //     .chat__form__btn {
+// //     &__btn {
+// //       position: absolute;
+// //       background-color: $light-blue;
+// //       height: 50px;
+// // // @@ -106,10 +106,8 @@
+// //       cursor: pointer;
+// //       line-height: 50px;
+// //       text-align: center;
+
+
+// //       span {
+// //         color: $white;
+// //         font-size: 16px;
+// //       }
+
+
+// //       color: $white;
+// //       font-size: 16px;
+//     // }
+//     // }
+//     }
+//   }
+//   }
+
+.main-content__form{
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+.form__message{
+  float:left;
+}
+.form__message{
+  float:left;
+}
+.form__mask{
+  float:left;
+}
 }

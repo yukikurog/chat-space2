@@ -44,37 +44,8 @@
     .main-content__header-edit-btn
       %p Edit
 
-  .main-content__chat--contents
-    .chat-message
-      .chat-message--name
-        %p HRJ
-      .chat-message--time
-        %P 2019-02-02
-      .chat-message--comment
-        %P NOP
-    .chat-message
-      .chat-message--name
-        %p QRS
-      .chat-message--time
-        %P 2020-01-01
-      .chat-message--comment
-        %P TUV
-    .chat-message
-      .chat-message--name
-        %p WXY
-      .chat-message--time
-        %P 2021-04-04
-      .chat-message--comment
-        %P ZAB
-
-  -# .main-content__form
-  -#   .input-box
-  -#     .input-box--text
-  -#       %placeholder="type a message"
-  -#       .input-box--image
-  -#         %i.fa.fa-picture-o
-  -#     .input-box--submit
-  -#       Send
+  .messages
+    = render partial: 'message', collection: @messages
 
 
     .main-content__form
