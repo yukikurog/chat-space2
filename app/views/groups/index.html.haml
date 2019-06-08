@@ -1,16 +1,4 @@
--# .wrapper
-
--#   = render 'messages/index'
-
 .wrapper
--# .side-content
--#   .side-content__header
--#     .side-content__header--name
--#       %h5 TEST
--#     .side-content__header--icon
--#       %i.fa.fa-edit
--#       %i.fa.fa-cog
-
 .side-bar
   .header
     %h3.header__name
@@ -31,13 +19,6 @@
             = group.name
           .groups-member--new
             メッセージはまだありません。
-      -#     .groups-member--name
-      -#         = group.name
-      -# .groups-member--new
-      -#     メッセージはまだありません。 
-          
-
- 
 
 .main-content
   .main-content__header
@@ -47,38 +28,6 @@
 
     .main-content__header-edit-btn
       %p Edit
-
-  -# .main-content__chat--contents
-  -#   .chat-message
-  -#     .chat-message--name
-  -#       %p HRJ
-  -#     .chat-message--time
-  -#       %P 2019-02-02
-  -#     .chat-message--comment
-  -#       %P NOP
-  -#   .chat-message
-  -#     .chat-message--name
-  -#       %p QRS
-  -#     .chat-message--time
-  -#       %P 2020-01-01
-  -#     .chat-message--comment
-  -#       %P TUV
-  -#   .chat-message
-  -#     .chat-message--name
-  -#       %p WXY
-  -#     .chat-message--time
-  -#       %P 2021-04-04
-  -#     .chat-message--comment
-  -#       %P ZAB
-
-  -# .main-content__form
-  -#   .input-box
-  -#     .input-box--text
-  -#       %placeholder="type a message"
-  -#       .input-box--image
-  -#         %i.fa.fa-picture-o
-  -#     .input-box--submit
-  -#       Send
 
     .main-content__form
       .input-box
