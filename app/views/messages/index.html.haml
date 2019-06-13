@@ -1,31 +1,25 @@
 .wrapper
-.side-content
-  .side-content__header
-    .side-content__header--name
-      %h5 TEST
-    .side-content__header--icon
-      %i.fa.fa-edit
-      %i.fa.fa-cog
+.side-bar
+  .header
+    %h3.header__name
+      =current_user.name
+    %ul.header__lists
+      %li.list
+        = link_to new_group_path do
+          = fa_icon 'pencil-square-o', class: 'icon'
+      %li.list
+        = link_to edit_user_path(current_user) do
+          = fa_icon 'cog', class: 'icon'
 
-  .side-content__groups
-    .groups-member
-      .groups-member--name
-        %h2 TEST1
-      .groups-member--new
-        %p まだメッセージがありません
-
-    .groups-member
-      .groups-member--name
-        %h2 TEST2
-      .groups-member--new
-        %p B group
-
-    .groups-member
-      .groups-member--name
-        %h2 TEST3
-      .groups-member--new
-        %p C group
-
+  .groups
+    - current_user.groups.each do |group|
+      .groups-member
+        = link_to group_messages_path(group) do   
+          .groups-member--name
+            = group.name
+          .groups-member--new
+            =group.show_last_message
+          
 .main-content
   .main-content__header
     .main-content__header--name
@@ -35,34 +29,15 @@
     .main-content__header-edit-btn
       %p Edit
 
-  .main-content__chat--contents
-    .chat-message
-      .chat-message--name
-        %p HRJ
-      .chat-message--time
-        %P 2019-02-02
-      .chat-message--comment
-        %P NOP
-    .chat-message
-      .chat-message--name
-        %p QRS
-      .chat-message--time
-        %P 2020-01-01
-      .chat-message--comment
-        %P TUV
-    .chat-message
-      .chat-message--name
-        %p WXY
-      .chat-message--time
-        %P 2021-04-04
-      .chat-message--comment
-        %P ZAB
+  .messages
+    = render partial: 'message', collection: @messages
 
   .main-content__form
     .input-box
-      .input-box--text
-        %placeholder="type a message"
-        .input-box--image
-          %i.fa.fa-picture-o
-      .input-box--submit
-        Send
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
