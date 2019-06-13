@@ -10,7 +10,7 @@
       %li.list
         = link_to edit_user_path(current_user) do
           = fa_icon 'cog', class: 'icon'
-
+ 
   .groups
     - current_user.groups.each do |group|
       .groups-member
@@ -18,26 +18,36 @@
           .groups-member--name
             = group.name
           .groups-member--new
-            メッセージはまだありません。
+            =group.show_last_message
 
-.main-content
-  .main-content__header
-    .main-content__header--name
-      %h2 ABCD
-      %p efgh
 
-    .main-content__header-edit-btn
-      %p Edit
+  -# .groups
+  -#   - current_user.groups.each do |group|
+  -#     .groups-member
+  -#       = link_to group_messages_path(group) do   
+  -#         .groups-member--name
+  -#           = group.name
+  -#         .groups-member--new
+  -#           メッセージはまだありません。
 
-    .main-content__form
-      .input-box
-        = form_for [@group, @message] do |f|
-          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-          .form__mask
-            = f.label :image, class: 'form__mask__image' do
-              = fa_icon 'picture-o', class: 'icon'
-              = f.file_field :image, class: 'hidden'
-          = f.submit 'Send', class: 'form__submit'
+-# .main-content
+-#   .main-content__header
+-#     .main-content__header--name
+-#       %h2 ABCD
+-#       %p efgh
+
+-#     .main-content__header-edit-btn
+-#       %p Edit
+
+-#     .main-content__form
+-#       .input-box
+-#         = form_for [@group, @message] do |f|
+-#           = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+-#           .form__mask
+-#             = f.label :image, class: 'form__mask__image' do
+-#               = fa_icon 'picture-o', class: 'icon'
+-#               = f.file_field :image, class: 'hidden'
+-#           = f.submit 'Send', class: 'form__submit'
 
 -# .wrapper
 -# .main-contents
