@@ -41,5 +41,8 @@ $(function() {
       $('.messages').append(html);
       $('.input-box__text').val('');
     })
+    .fail(function(){
+      alert('error');
+    })
   });
 });
