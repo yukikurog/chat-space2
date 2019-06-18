@@ -1,4 +1,21 @@
 $(function() {
+  function buildHTML(message) {
+    if (message.image) {
+    var image = '<img src='+ message.image +'>'
+  } else {
+    var image = ''
+  };
+  var html = `<div class="main-content__chat--contents">
+                <div class="chat-message">
+                  <p class="chat-message--name">${message.name}</p>
+                  <p class="chat-message--time"> ${message.time}</p>
+                </div>
+                <div class="chat-message--comment">
+                  <p class="lower-message__content>${message.text}</p>
+                  <p class="lower-message__image> image
+                </div>`
+  return html;
+  }
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
     console.log(this);
