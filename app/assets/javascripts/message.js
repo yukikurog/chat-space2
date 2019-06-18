@@ -16,11 +16,18 @@ $(function() {
                 </div>`
   return html;
   }
+
+  function moveToBottom() {
+    $('.chat-main').animate({
+      scrollTop: $('.messages').height()
+    });
+
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
     console.log(this);
     var formData = new FormData(this);
     var url = $(this).attr('action');
+    return false;
     $.ajax({
       url: url,
       type: 'POST',
