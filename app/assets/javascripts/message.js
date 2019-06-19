@@ -40,6 +40,7 @@ $(function() {
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.input-box__text').val('');
+      $('#new_message')[0].reset();
     })
     .fail(function(){
       alert('error');
