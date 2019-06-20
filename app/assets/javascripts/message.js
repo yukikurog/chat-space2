@@ -64,10 +64,7 @@ $(document).on('turbolinks:load', function(){
               moveToBottom();
             }
         })
-        .fail(function () {
-          alert('error');
-        })
-      }, 5000);
+      }:
     };
     if (document.location.href.match("/messages")) {
       autoUpdate();
