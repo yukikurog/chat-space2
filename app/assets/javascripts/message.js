@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function(){
   $(function() {
     function buildHTML(message) {
-    var image = ""
+    var image = message.is_image_present ? `<img src='${message.image.url}'> ` : ''
     message.image ? image = `<img src="${message.image}">` : image = ""
     var html = `<div class="message" data-id="${message.id}">
                   <div class="message__upper-info">
@@ -47,10 +47,7 @@ $(document).on('turbolinks:load', function(){
     function autoUpdate() {
       setInterval(function() {
         if($('.message')[0]) {
-          var message_id = $('.message:last').data('id');
-        } else {
-          var message_id = 0;
-        }
+          var message_id = $('.main-contents__body__list__message').last().data('id');
         $.ajax({
           url: './messages',
           type: 'GET',

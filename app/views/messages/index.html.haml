@@ -23,11 +23,16 @@
 .main-content
   .main-content__header
     .main-content__header--name
-      %h2 ABCD
-      %p efgh
+      %h2 
+      = @group.name
+      %p Members:
+      -# - @group.users.each do |user|
+      -#   = user.name
+      
 
     .main-content__header-edit-btn
-      %p Edit
+      -# = link_to edit_group_path(@group) 
+      Edit
 
   .messages
     = render partial: 'message', collection: @messages
