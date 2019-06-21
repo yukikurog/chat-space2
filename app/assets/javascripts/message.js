@@ -57,11 +57,12 @@ $(document).on('turbolinks:load', function(){
           dataType: 'json'
         })
         .done(function(data) {
-            if(data.length != 0) {
-              var html = buildHTML(data);
+          if(data.length) {
+            data.forEach(function(message) {
+              var html = buildHTML(message);
               $('.messages').append(html);
               moveToBottom();
-            }
+            })
         })
         .fail(function () {
           alert('error');
