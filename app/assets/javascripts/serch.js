@@ -28,41 +28,39 @@ $(document).on('turbolinks:load', function(){
      search_append_list.append(html);
    }
 
-    $('#user-search-field').on('keyup', function(){
-      var input = $('#user-search-field').val();
-        $.ajax({
-          type: 'GET',
-          url: '/users',
-          data: { keyword: input },
-          dataType: 'json'
-        })
-        .done(function(users) {
-          $("#user-search-result").empty();
-          if(users.length !== 0 && input.length !== 0) {
-            users.forEach(function(user) {
-              appendUser(user);
-            });
-          }
-          else {
-            notMatchUser();
-          }
-        })
-        .fail(function() {
-          alert('ユーザー検索に失敗しました');
+   $('#user-search-field').on('keyup', function(){
+    var input = $('#user-search-field').val();
+    $.ajax({
+      type: 'GET',
+      url: '/users',
+      data: { keyword: input },
+      dataType: 'json'
+    })
+    .done(function(users) {
+      $("#user-search-result").empty();
+      if(users.length !== 0) {
+        users.forEach(function(user) {
+          appendUser(user);
         });
-    });
-
-    $(".chat-group-form").on('click', ".user-search-add", function() {
-      var id = $(this).data('user-id');
-      var name = $(this).data('user-name');
-      buildUser(id, name);
-      var user = $(this).parent();
-      user.remove();
-    });
-
-    $(".chat-group-form").on('click', ".user-search-remove", function() {
-      var user = $(this).parent();
-      user.remove();
+      }
+      else {
+        notMatchUser();
+      }
+    })
+    .fail(function() {
+      alert('ユーザー検索に失敗しました');
     });
   });
+  $(".chat-group-form").on('click', ".user-search-add", function() {
+    var id = $(this).data('user-id');
+    var name = $(this).data('user-name');
+    buildUser(id, name);
+    var user = $(this).parent();
+    user.remove();
+  });
+  $(".chat-group-form").on('click', ".user-search-remove", function() {
+    var user = $(this).parent();
+    user.remove();
+  });
+});
 });
