@@ -47,6 +47,9 @@ $(document).on('turbolinks:load', function(){
       setInterval(function() {
         if($('.message')[0]) {
           var message_id = $('.main-contents__body__list__message').last().data('id');
+        } else {
+          var message_id = 0;
+        }
         $.ajax({
           url: './messages',
           type: 'GET',
@@ -60,8 +63,12 @@ $(document).on('turbolinks:load', function(){
               moveToBottom();
             }
         })
-      }:
-    };
+        .fail(function () {
+          alert('error');
+        });
+        })
+      }, 5000);
+    )};
     if (document.location.href.match("/messages")) {
       autoUpdate();
     }
