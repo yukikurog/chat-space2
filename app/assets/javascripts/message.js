@@ -47,6 +47,9 @@ $(document).on('turbolinks:load', function(){
       setInterval(function() {
         if($('.message')[0]) {
           var message_id = $('.main-contents__body__list__message').last().data('id');
+        } else {
+          var message_id = 0;
+        }
         $.ajax({
           url: './messages',
           type: 'GET',
@@ -54,14 +57,19 @@ $(document).on('turbolinks:load', function(){
           dataType: 'json'
         })
         .done(function(data) {
-            if(data.length != 0) {
-              var html = buildHTML(data);
+          if(data.length) {
+            data.forEach(function(message) {
+              var html = buildHTML(message);
               $('.messages').append(html);
               moveToBottom();
-            }
+            })
         })
-      }:
-    };
+        .fail(function () {
+          alert('error');
+        });
+        })
+      }, 5000);
+    )};
     if (document.location.href.match("/messages")) {
       autoUpdate();
     }
